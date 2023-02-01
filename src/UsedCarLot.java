@@ -26,4 +26,23 @@ public class UsedCarLot {
             return true;
         }
     }
+
+    public void addCar(int indexToAdd, Car carToAdd){
+        inventory.add(indexToAdd, carToAdd);
+    }
+
+    public Car sellCarShift(int indexOfCarToSell){
+        return inventory.remove(indexOfCarToSell);
+    }
+
+    public Car sellCarNoShift(int indexOfCarToSell){
+        Car soldCar = inventory.get(indexOfCarToSell);
+        inventory.set(indexOfCarToSell, null);
+        return soldCar;
+    }
+
+    public void moveCar(int indexOfCarToMove, int destinationIndex){
+        Car movedCar = inventory.remove(indexOfCarToMove);
+        inventory.add(destinationIndex, movedCar);
+    }
 }
